@@ -4,6 +4,11 @@
   "description": "Bot to make appointments in the damned spanish administration !",
   "main": "lib/task.js",
   "scripts": {
+    "start": "node lib/index.js",
+    "deploy": "now --public --docker --name=cita-extranjeria",
+    "docker:build": "docker build -t cita-extranjeria .",
+    "docker:run": "docker run -p 80:80 cita-extranjeria",
+    "docker:kill": "docker kill $(docker ps -q --filter \"ancestor=cita-extranjeria\")",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Almeida <davidbarna@gmail.com>",
